@@ -136,6 +136,9 @@ audio_pause.play()
 
     }
 startPauseBt.textContent = "Pausar"
+
+
+
     //desafio de tocar som do botão da priira fez é iniciar
 //controle=true
 //playAudio()
@@ -148,7 +151,7 @@ startPauseBt.textContent = "Pausar"
 function zerar() {
 
 //vlaota a exibir começar
-startPauseBt.textContent = "Pausar"
+startPauseBt.textContent = "Começar"
 
 
 
