@@ -24,6 +24,13 @@ let intervaloId=null
 
 
 const musica=new  Audio('sons/luna-rise-part-one.mp3')
+
+/*trocar texto de botão pausado/começar*/
+//pega otexto daquele botão da Alura
+const iniciarOuPausarBt=document.querySelector('#start-pause span')
+//fim dessa configuração
+
+
 //musica em loop
 musica.loop=true
 //evento no click
@@ -86,6 +93,7 @@ switch (contexto) {
         if (musica.paused) {
           musica.play()
         }
+
         else   {
           musica.pause()
         }
@@ -94,12 +102,15 @@ switch (contexto) {
 
 
 
-function contagemRegressiva(){
+const contagemRegressiva =()=>{
 //recursividade do loop
+//temporizador zerou
 if (tempoDecorridoemSegundos<=0) {
-  zerar()
+
   alert('Tempo finalizado!  ')
+zerar()
   return
+
 }
  // iniciarOuPausar()
   tempoDecorridoemSegundos-=1
@@ -111,14 +122,45 @@ if (tempoDecorridoemSegundos<=0) {
 startPauseBt.addEventListener('click',iniciarOuPausar)
 
 function iniciarOuPausar() {
+//se temporizador pausado
+
     if(intervaloId){
+    /*desafio */
+audio_pause.play()
+    /*fim desafio*/
+
         zerar()
+
         return
+
+
     }
+startPauseBt.textContent = "Pausar"
+    //desafio de tocar som do botão da priira fez é iniciar
+//controle=true
+//playAudio()
+
+//fim  desafio
+
     intervaloId = setInterval(contagemRegressiva, 1000)
 }
 
 function zerar() {
+
+//vlaota a exibir começar
+startPauseBt.textContent = "Pausar"
+
+
+
+
+
+
   clearInterval(intervaloId)
+//quando pausa muda texto do botão p\ começar
 intervaloId=null
+//inicio desafio
+//audio_beep.play()
+//fim desafio
+
+
 }
