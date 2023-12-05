@@ -97,7 +97,7 @@ switch (contexto) {
 function contagemRegressiva(){
 //recursividade do loop
 if (tempoDecorridoemSegundos<=0) {
-  //zerar()
+  zerar()
   alert('Tempo finalizado!  ')
   return
 }
