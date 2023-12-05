@@ -101,9 +101,10 @@ if (tempoDecorridoemSegundos<=0) {
   alert('Tempo finalizado!  ')
   return
 }
-  iniciarOuPausar()
+ // iniciarOuPausar()
   tempoDecorridoemSegundos-=1
   console.log("Temporizador: "+ tempoDecorridoemSegundos);
+
 }
 
 
