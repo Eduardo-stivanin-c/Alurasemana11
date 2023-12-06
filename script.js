@@ -18,7 +18,7 @@ const musicaFocoinput=document.querySelector('#alternar-musica')
 //carrega audio que nem a  tag  audi o deo html
 
 //termporizador
- let tempoDecorridoemSegundos=5
+ let tempoDecorridoemSegundos=1500
 const startPauseBt=document.querySelector('#start-pause')
 let intervaloId=null
 
@@ -34,26 +34,40 @@ const iniciarOuPausarBt=document.querySelector('#start-pause span')
 //musica em loop
 musica.loop=true
 //evento no click
+const tempoNaTela=document.querySelector('#timer')
+//tempo na tela
+
+
 
     focoBt.addEventListener('click', () => {
+    //tempo de foco
+    tempoDecorridoemSegundos=1500//25 segundos
         //gambiara de alterar atributo
         alterarContexto('foco')
         focoBt.classList.add('active')
     })
     //gambiara de alterar atributo
-    curtoBt.addEventListener('click', () => {
 
+
+    curtoBt.addEventListener('click', () => {
+        ////tempo de foco de descanço curto
+
+tempoDecorridoemSegundos=300
         alterarContexto('descanso-curto')
         curtoBt.classList.add('active')
     })
 
 
     longoBt.addEventListener('click', () => {
+        tempoDecorridoemSegundos=900 //15 segundos
          alterarContexto('descanso-longo')
          longoBt.classList.add('active')
     })
 
     function alterarContexto(contexto) {
+        //altera o  otempo na tela viculado com botão
+        mostrarTempo()
+        //fim da mençaõ ao temp na tela
         botoes.forEach(function(contexto)  {
             contexto.classList.remove('active')
 
@@ -114,8 +128,8 @@ zerar()
 }
  // iniciarOuPausar()
   tempoDecorridoemSegundos-=1
-  console.log("Temporizador: "+ tempoDecorridoemSegundos);
-
+ // console.log("Temporizador: "+ tempoDecorridoemSegundos);
+mostrarTempo()
 }
 
 
@@ -141,7 +155,7 @@ startPauseBt.textContent = "Pausar"
 
     //desafio de tocar som do botão da priira fez é iniciar
 //controle=true
-//playAudio()
+playAudio()
 
 //fim  desafio
 
@@ -162,8 +176,28 @@ startPauseBt.textContent = "Começar"
 //quando pausa muda texto do botão p\ começar
 intervaloId=null
 //inicio desafio
-//audio_beep.play()
+audio_beep.play()
 //fim desafio
 
 
 }
+
+
+
+//mostrar t tempo na tela
+
+function mostrarTempo() {
+    //porque trablaha com milsegundos
+    const tempo=new Date(tempoDecorridoemSegundos*1000)
+    //formata no padrão pt-br (portugues do Brasil)
+    const tempoFormatado=tempo.toLocaleString("pt-br",{minute:'2-digit',second:'2-digit'})
+
+tempoNaTela.innerHTML=`${tempoFormatado}`
+
+}
+
+mostrarTempo()
+
+
+//correção pra aparacer cara gerado po AI na tela inicial
+banner.setAttribute('src',`./imagens/foco.png`)
