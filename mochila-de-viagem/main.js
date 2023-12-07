@@ -24,6 +24,7 @@ const itemAtual = {
 //se existe
     if (existe) {
       itemAtual.id=item.id
+      console.log(existe.id)
     }
     else{
       itemAtual.id=item.length
