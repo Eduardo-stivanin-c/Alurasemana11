@@ -17,6 +17,11 @@ form.addEventListener("submit", (evento) => {
     
     console.log(existe)
 //se id existe reotna o mesmo id senão reotna o  posiçõa do elentoe
+const itemAtual = {
+    "nome": nome.value,
+    "quantidade": quantidade.value,
+    }
+
     if (existe) {
       itemAtual.id=item.id
     }
@@ -30,10 +35,7 @@ form.addEventListener("submit", (evento) => {
     const nome = evento.target.elements['nome']
     const quantidade = evento.target.elements['quantidade']
 
-    const itemAtual = {
-    "nome": nome.value,
-    "quantidade": quantidade.value
-    }
+    
 
     criaElemento(itemAtual)
 
