@@ -21,7 +21,7 @@ const itemAtual = {
     "nome": nome.value,
     "quantidade": quantidade.value,
     }
-
+//se existe
     if (existe) {
       itemAtual.id=item.id
     }
@@ -55,9 +55,11 @@ function criaElemento(item) {
 
     const numeroItem = document.createElement('strong')
     numeroItem.innerHTML = item.quantidade
+    //pode inventar quanarquer atributo até farofa
+    numeroItem.dataset.id=item.id
+
     novoItem.appendChild(numeroItem)
 
-    //pode inventar quanarquer atributo até farofa
 
 
 
